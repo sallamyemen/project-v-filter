@@ -1,75 +1,16 @@
-# Nuxt Minimal Starter
+WHAT TO DO
+At the moment, we have the old website for PV, but we need to have all of our websites in one of the latest technology in the market. 
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+As far as we do not have a new design ready, we should start the development of functionality where the design is not that much important, so do not focus on the design.
 
-## Setup
+ 
 
-Make sure to install dependencies:
+Remake the catalog logic in a new project https://projectvint.ru/catalog/ 
 
-```bash
-# npm
-npm install
+LOGIC
+The logic may be the same as it is on the website already:
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For each single category we have a route for that; e.g. https://projectvint.ru/catalog/category-nutraceuticals/ -> https://projectvint.ru/catalog/nutraceuticals/ (make note I have deleted the word category)
+For each single subcategory we have a route for that; e.g. https://projectvint.ru/catalog/category-nutraceuticals/collection-classic-hit/ -> https://projectvint.ru/catalog/nutraceuticals/collection-classic-hit/  (make note I have deleted the word category)
+If more than two subcategories are selected, then we redirect to the main catalog, and set to the url the new parameters; e.g. https://projectvint.ru/catalog/?category=nutraceuticals,cosmeceuticals&collection=classic-hit,direct-hit,switzerland-cosmetics -> https://projectvint.ru/catalog/?category=nutraceuticals,cosmeceuticals&collection=classic-hit,direct-hit,switzerland-cosmetics -> https://projectvint.ru/catalog/?categories=nutraceuticals,cosmeceuticals&collections=classic-hit,direct-hit,switzerland-cosmetics  (make note I have change the parameter names)
+Do not forget to cover the cases where the use arrives to the catalog with already some parameters in the URL, in this case the catalog filters should be set automatically from there;
